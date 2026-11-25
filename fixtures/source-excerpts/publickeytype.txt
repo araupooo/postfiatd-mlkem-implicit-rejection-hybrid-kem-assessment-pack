@@ -1,0 +1,13 @@
+# postfiatd ../work/postfiatd src/libxrpl/protocol/PublicKey.cpp — publicKeyType (lines 223-233)
+# HEAD: 0085a1ff885d6a446369cf73a4430f75af22be55
+std::optional<KeyType>
+publicKeyType(Slice const& slice)
+{
+    if (slice.size() == 33)
+    {
+        if (slice[0] == 0xED)
+            return KeyType::ed25519;
+
+        if (slice[0] == 0x02 || slice[0] == 0x03)
+            return KeyType::secp256k1;
+    }

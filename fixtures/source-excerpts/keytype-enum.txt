@@ -1,0 +1,6 @@
+# postfiatd ../work/postfiatd include/xrpl/protocol/KeyType.h — enum definition (lines 28-31)
+# HEAD: 0085a1ff885d6a446369cf73a4430f75af22be55
+enum class KeyType {
+    secp256k1 = 0,
+    ed25519 = 1,
+};
