@@ -1,0 +1,103 @@
+{
+ "findings": [
+  {
+   "evidence": "outputs/source-trace.log:4; include/xrpl/protocol/KeyType.h:28-31",
+   "id": "F-01",
+   "label": "MEASURED",
+   "severity": "HIGH",
+   "title": "postfiatd has no ML-KEM code at all"
+  },
+  {
+   "evidence": "outputs/harness.log:18-20,24-25,39-41,45-46,69-71,75-76",
+   "id": "F-02",
+   "label": "MEASURED",
+   "severity": "MEDIUM",
+   "title": "Implicit rejection is silent \u2014 no error is ever returned"
+  },
+  {
+   "evidence": "outputs/harness.log:24,45,75",
+   "id": "F-03",
+   "label": "MEASURED",
+   "severity": "LOW",
+   "title": "Rejected outputs are distinct per invalid ciphertext"
+  },
+  {
+   "evidence": "outputs/harness.log:51-54",
+   "id": "F-04",
+   "label": "MEASURED",
+   "severity": "LOW",
+   "title": "No timing signal at wall-clock resolution \u2014 not a constant-time proof"
+  },
+  {
+   "evidence": "outputs/harness.log:56-58",
+   "id": "F-05",
+   "label": "MEASURED",
+   "severity": "MEDIUM",
+   "title": "Key reuse is safe for correctness, unsafe to assume for replay protection"
+  },
+  {
+   "evidence": "outputs/harness.log:88,94; draft-11 section 5.5; RFC 10024 section 4.3",
+   "id": "F-06",
+   "label": "SPEC-DERIVED + MEASURED",
+   "severity": "HIGH",
+   "title": "X-Wing (draft-11) has no all-zero X25519 check"
+  },
+  {
+   "evidence": "draft-11 header; RFC 10024 header",
+   "id": "F-07",
+   "label": "SPEC-DERIVED",
+   "severity": "MEDIUM",
+   "title": "X-Wing is still a draft; the TLS hybrid is already an RFC"
+  },
+  {
+   "evidence": "outputs/harness.log:82; liboqs 0.14.0 src/kem/ inventory",
+   "id": "F-08",
+   "label": "MEASURED",
+   "severity": "LOW",
+   "title": "liboqs 0.14.0 does not ship X-Wing or expose ML-KEM.KeyGen_internal"
+  },
+  {
+   "evidence": "outputs/harness.log:10-14,33-35,63-65,84-85,90-91,96-97",
+   "id": "F-09",
+   "label": "MEASURED",
+   "severity": "INFO",
+   "title": "Sizes and speeds confirmed"
+  },
+  {
+   "evidence": "outputs/harness.log:27-28; FIPS 203 section 7.3",
+   "id": "F-10",
+   "label": "SPEC-DERIVED",
+   "severity": "MEDIUM",
+   "title": "The FIPS 203 section 7.3 length check must live in the application"
+  },
+  {
+   "evidence": "draft-11 section 6.1",
+   "id": "F-11",
+   "label": "SPEC-DERIVED",
+   "severity": "LOW",
+   "title": "ML-KEM alone lacks the binding properties X-Wing provides"
+  }
+ ],
+ "totals": {
+  "by_label": {
+   "MEASURED": 7,
+   "SPEC-DERIVED": 3,
+   "SPEC-DERIVED + MEASURED": 1
+  },
+  "by_severity": {
+   "HIGH": 2,
+   "INFO": 1,
+   "LOW": 4,
+   "MEDIUM": 4
+  }
+ },
+ "unsupported": [
+  "U-01 truncated-ciphertext behaviour",
+  "U-02 constant-time behaviour",
+  "U-03 production hybrid performance",
+  "U-04 draft-11 test-vector conformance",
+  "U-05 failure-oracle exploitability in deployment",
+  "U-06 measured decapsulation failure rates",
+  "U-07 security of the pack combiner"
+ ]
+}

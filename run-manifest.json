@@ -1,0 +1,1 @@
+{"benchmarks":{"bench_n":200,"timing_n":1000},"counts":{"findings":11,"unsupported":7},"harness":{"exit_code":0,"log_lines":101,"selftests_passed":4,"wall_time_s":2.3},"liboqs":"0.14.0","liboqs_commit":"94b421ebb82405c843dba4e9aa521a56ee5a333d","postfiatd_commit":"0085a1ff885d6a446369cf73a4430f75af22be55","run_date":"2026-11-25"}
