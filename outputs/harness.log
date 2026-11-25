@@ -1,0 +1,101 @@
+HARNESS mlkem_harness 1.0.0
+ENV liboqs=0.14.0 openssl=OpenSSL 3.0.13 30 Jan 2024
+PARAM bench_n=200 timing_n=1000 single_threaded=1
+SELFTEST sha3_256_empty expected=a7ffc6f8bf1ed76651c14756a061d662f580ff4de43b49fa82d80a4b80f8434a got=a7ffc6f8bf1ed76651c14756a061d662f580ff4de43b49fa82d80a4b80f8434a PASS
+SELFTEST rfc7748_x25519_vector1 expected=c3da55379de9c6908e94ea4df28d084f32eccf03491c71f754b4075577a28552 got=c3da55379de9c6908e94ea4df28d084f32eccf03491c71f754b4075577a28552 PASS
+SELFTEST rfc7748_x25519_vector2 expected=95cbde9476e8907d7aade45cb4b873f88b595a68799fa152e6f8f7647aac7957 got=95cbde9476e8907d7aade45cb4b873f88b595a68799fa152e6f8f7647aac7957 PASS
+SELFTEST rfc7748_x25519_zero_u result_all_zero=yes
+=== SECTION A+B: ML-KEM-512 ===
+RESULT ML-KEM-512 available=1 alg=ML-KEM-512
+RESULT ML-KEM-512 sizes pk=800 dk=1632 ct=768 ss=32
+RESULT ML-KEM-512 sizes_match_fips203_table3=PASS
+RESULT bench ML-KEM-512_keygen n=200 mean_us=8.604 median_us=8.112 min_us=7.941 max_us=56.144 stdev_us=3.778 ops_per_s=116219.9
+RESULT bench ML-KEM-512_encaps n=200 mean_us=9.176 median_us=8.909 min_us=8.843 max_us=24.797 stdev_us=1.647 ops_per_s=108975.4
+RESULT bench ML-KEM-512_decaps n=200 mean_us=12.110 median_us=11.793 min_us=11.707 max_us=23.596 stdev_us=1.653 ops_per_s=82573.6
+RESULT ML-KEM-512 roundtrip_match=yes
+=== SECTION C: ML-KEM-512 failure injection ===
+RESULT ML-KEM-512 ref_ss_sha256=68f4d07328a9704409880e0bd00e4642329e150496a92aa9de71846ec7b41576
+RESULT ML-KEM-512 bitflip byte=0 rc=OQS_SUCCESS ss_equals_ref=no ss_sha256=abf911d033129e6c99bf4642b2a474c8f87ce6cdf33e6b4e80da25b9d871dc31
+RESULT ML-KEM-512 bitflip byte=384 rc=OQS_SUCCESS ss_equals_ref=no ss_sha256=a4eb2fd6cd0360ea54b73afbf46d121e58cd779d531f0a381aaeb4d85f68dcb2
+RESULT ML-KEM-512 bitflip byte=767 rc=OQS_SUCCESS ss_equals_ref=no ss_sha256=6ce8e9b5c8a72b99f79d6f0681a9ecd2502fd6850e43b37e5bb7cf8396bd6685
+RESULT ML-KEM-512 random_ct[0] rc=OQS_SUCCESS ss_sha256=3c7c7dc1e62248a30f95b28eb3f3280417f0c2df842fac24fe1b750ac523395a
+RESULT ML-KEM-512 random_ct[1] rc=OQS_SUCCESS ss_sha256=089cb5f7ce812fac08ad4973a7010ee4b797111fcd0768ecb97345bc5b184411
+RESULT ML-KEM-512 random_ct[2] rc=OQS_SUCCESS ss_sha256=b2f3175f2148e292eec41f9cdded43f7c3c05459c1d0f02ddeac56b4de63eccf
+RESULT ML-KEM-512 random_ct n=32 all_rc_success=yes distinct_rejected_ss=32 any_equals_ref=no
+RESULT ML-KEM-512 zero_ct rc=OQS_SUCCESS ss_equals_ref=no ss_sha256=2378e8c84cb90f2e63c5711d1efe82443650557ab331d09d61c60b96cfcb12ac
+RESULT ML-KEM-512 ct_len=768 rc=OQS_SUCCESS (control)
+RESULT ML-KEM-512 truncated_ct api_note=liboqs_OQS_KEM_decaps_takes_fixed_length_ct_no_length_parameter_short_ct_not_representable
+RESULT ML-KEM-512 truncated_ct status=UNSUPPORTED_IN_THIS_API
+=== SECTION A+B: ML-KEM-768 ===
+RESULT ML-KEM-768 available=1 alg=ML-KEM-768
+RESULT ML-KEM-768 sizes pk=1184 dk=2400 ct=1088 ss=32
+RESULT ML-KEM-768 sizes_match_fips203_table3=PASS
+RESULT bench ML-KEM-768_keygen n=200 mean_us=14.220 median_us=13.750 min_us=13.491 max_us=39.680 stdev_us=2.529 ops_per_s=70325.1
+RESULT bench ML-KEM-768_encaps n=200 mean_us=14.860 median_us=13.951 min_us=13.860 max_us=97.746 stdev_us=6.432 ops_per_s=67295.8
+RESULT bench ML-KEM-768_decaps n=200 mean_us=18.699 median_us=18.278 min_us=18.157 max_us=33.500 stdev_us=1.997 ops_per_s=53478.6
+RESULT ML-KEM-768 roundtrip_match=yes
+=== SECTION C: ML-KEM-768 failure injection ===
+RESULT ML-KEM-768 ref_ss_sha256=614389f85ce588cff2a8ada6d94f18e338ed92b77c4943b207451c458dfc0ff0
+RESULT ML-KEM-768 bitflip byte=0 rc=OQS_SUCCESS ss_equals_ref=no ss_sha256=3d6e7587a12b1d70a712e3e419f2e78dc6f69595cd3f4262e59e43a9be694826
+RESULT ML-KEM-768 bitflip byte=544 rc=OQS_SUCCESS ss_equals_ref=no ss_sha256=72508b89fa9aa203a09f7a90922576d8f21bd851d2f945dd04baa0fb0f6207a5
+RESULT ML-KEM-768 bitflip byte=1087 rc=OQS_SUCCESS ss_equals_ref=no ss_sha256=c62035c66e6bedad0e79123c9849ee639eb0ff909e10519de75e19bd51f29e58
+RESULT ML-KEM-768 random_ct[0] rc=OQS_SUCCESS ss_sha256=b6b9946ca47b2a44e1d86187108f0fb99b7a16e92f0723979f1abebc4c000017
+RESULT ML-KEM-768 random_ct[1] rc=OQS_SUCCESS ss_sha256=0bd8cb6dba5a41fc6ebfdc4ee3ee8eb41ab0843a222f72f4a1b6f80d758a344e
+RESULT ML-KEM-768 random_ct[2] rc=OQS_SUCCESS ss_sha256=a06dbde45a60099883406f6a13f7d2ba1bdb26f0bf9c29aae514db4696b21c7a
+RESULT ML-KEM-768 random_ct n=32 all_rc_success=yes distinct_rejected_ss=32 any_equals_ref=no
+RESULT ML-KEM-768 zero_ct rc=OQS_SUCCESS ss_equals_ref=no ss_sha256=3c342548a6fe4da700a5250e5ee6b38c0cf437b516b8de541a0a900c6b603746
+RESULT ML-KEM-768 ct_len=1088 rc=OQS_SUCCESS (control)
+RESULT ML-KEM-768 truncated_ct api_note=liboqs_OQS_KEM_decaps_takes_fixed_length_ct_no_length_parameter_short_ct_not_representable
+RESULT ML-KEM-768 truncated_ct status=UNSUPPORTED_IN_THIS_API
+=== SECTION D: ML-KEM-768 coarse timing valid vs invalid decaps ===
+RESULT timing valid n=1000 mean_us=19.170 median_us=18.297 min_us=18.087 max_us=220.781 stdev_us=8.230
+RESULT timing invalid n=1000 mean_us=18.832 median_us=18.297 min_us=18.177 max_us=94.752 stdev_us=3.572
+RESULT timing mean_diff_us=-0.338 invalid_over_valid_ratio=0.9824 median_diff_us=0.000
+NOTE timing caveat=coarse_wall_clock_comparison_not_a_constant_time_proof
+=== SECTION E: ML-KEM-768 key reuse ===
+RESULT ML-KEM-768 keyreuse n=100 all_decaps_match_encaps=yes all_ciphertexts_distinct=yes
+RESULT ML-KEM-768 keyreuse replay_first_ct rc=OQS_SUCCESS ss_sha256=410b8cfc9e37cc0d548c104fab62bb5d306bdb74998aa8ef78d2b8e0a451b83f
+RESULT ML-KEM-768 keyreuse wrong_key_decaps rc=OQS_SUCCESS ss_equals_ref=no
+=== SECTION A+B: ML-KEM-1024 ===
+RESULT ML-KEM-1024 available=1 alg=ML-KEM-1024
+RESULT ML-KEM-1024 sizes pk=1568 dk=3168 ct=1568 ss=32
+RESULT ML-KEM-1024 sizes_match_fips203_table3=PASS
+RESULT bench ML-KEM-1024_keygen n=200 mean_us=18.610 median_us=18.157 min_us=17.827 max_us=29.695 stdev_us=1.917 ops_per_s=53733.6
+RESULT bench ML-KEM-1024_encaps n=200 mean_us=19.044 median_us=18.668 min_us=18.508 max_us=30.426 stdev_us=1.875 ops_per_s=52511.2
+RESULT bench ML-KEM-1024_decaps n=200 mean_us=25.376 median_us=24.457 min_us=24.296 max_us=98.638 stdev_us=5.726 ops_per_s=39406.7
+RESULT ML-KEM-1024 roundtrip_match=yes
+=== SECTION C: ML-KEM-1024 failure injection ===
+RESULT ML-KEM-1024 ref_ss_sha256=1415914032e5aa6c96d1e7a0204f69c38636acbd4b36e082eb09fe511a650c9d
+RESULT ML-KEM-1024 bitflip byte=0 rc=OQS_SUCCESS ss_equals_ref=no ss_sha256=9b66c1f59f45e7a125a39b85780840a6bfd1439dcd1bc7f451159bea6fbbaafd
+RESULT ML-KEM-1024 bitflip byte=784 rc=OQS_SUCCESS ss_equals_ref=no ss_sha256=cf415929cf3f937f988322ce39c7c505569c2a8da828fc2928bab36a740f4f83
+RESULT ML-KEM-1024 bitflip byte=1567 rc=OQS_SUCCESS ss_equals_ref=no ss_sha256=f5e57cbb36f5553db2bd973d4a3cae8aac57e738234e61fc2cfd7a6ec299cc01
+RESULT ML-KEM-1024 random_ct[0] rc=OQS_SUCCESS ss_sha256=256c971a6ca3e084516f9071656224c6e9971ab6d0977c0f76d9c4527559e7cd
+RESULT ML-KEM-1024 random_ct[1] rc=OQS_SUCCESS ss_sha256=f26ecb17ce1e6e80f602cde073195fcc4f90620b07365b24388197fba060bc6e
+RESULT ML-KEM-1024 random_ct[2] rc=OQS_SUCCESS ss_sha256=c215ad9dbbbc124d3549c88bffeab7781c535beb3a8d51702b82c511ec4a0280
+RESULT ML-KEM-1024 random_ct n=32 all_rc_success=yes distinct_rejected_ss=32 any_equals_ref=no
+RESULT ML-KEM-1024 zero_ct rc=OQS_SUCCESS ss_equals_ref=no ss_sha256=e78dc239f364a90cd1c88004885772d7e6b10e55da877b3a12cec2e61685c976
+RESULT ML-KEM-1024 ct_len=1568 rc=OQS_SUCCESS (control)
+RESULT ML-KEM-1024 truncated_ct api_note=liboqs_OQS_KEM_decaps_takes_fixed_length_ct_no_length_parameter_short_ct_not_representable
+RESULT ML-KEM-1024 truncated_ct status=UNSUPPORTED_IN_THIS_API
+=== SECTION F: hybrid ML-KEM-768 + X25519 ===
+RESULT hybrid sizes xwing_pk=1216 xwing_ct=1120 xwing_ss=32 rfc10024_ss=64 pack_ss=32 mlkem768_ct=1088
+RESULT hybrid keygen_note=independent_liboqs_mlkem768_keypair_plus_inharness_rfc7748_x25519_keypair_draft11_shake256_seed_expansion_not_used_because_liboqs_does_not_expose_KeyGen_internal
+RESULT hybrid xwing roundtrip_match=yes rc=0 ss_len=32
+RESULT bench hybrid_xwing_encaps n=200 mean_us=2361.304 median_us=2313.741 min_us=2262.810 max_us=2880.796 stdev_us=115.246 ops_per_s=423.5
+RESULT bench hybrid_xwing_decaps n=200 mean_us=1267.563 median_us=1199.397 min_us=1159.397 max_us=3507.174 stdev_us=215.805 ops_per_s=788.9
+RESULT hybrid xwing bitflip_mlkem_part rc=0 ss_equals_ref=no
+RESULT hybrid xwing bitflip_x25519_part rc=0 ss_equals_ref=no
+RESULT hybrid xwing zero_x25519_ct_part rc=0 ss_equals_ref=no
+RESULT hybrid rfc10024 roundtrip_match=yes rc=0 ss_len=64
+RESULT bench hybrid_rfc10024_encaps n=200 mean_us=2497.098 median_us=2314.818 min_us=2256.160 max_us=12021.148 stdev_us=832.289 ops_per_s=400.5
+RESULT bench hybrid_rfc10024_decaps n=200 mean_us=1196.323 median_us=1178.250 min_us=1155.751 max_us=1708.249 stdev_us=63.873 ops_per_s=835.9
+RESULT hybrid rfc10024 bitflip_mlkem_part rc=0 ss_equals_ref=no
+RESULT hybrid rfc10024 bitflip_x25519_part rc=0 ss_equals_ref=no
+RESULT hybrid rfc10024 zero_x25519_ct_part rc=-2 ss_equals_ref=no
+RESULT hybrid pack roundtrip_match=yes rc=0 ss_len=32
+RESULT bench hybrid_pack_encaps n=200 mean_us=2401.164 median_us=2319.725 min_us=2266.605 max_us=4211.649 stdev_us=249.736 ops_per_s=416.5
+RESULT bench hybrid_pack_decaps n=200 mean_us=1217.932 median_us=1201.054 min_us=1167.148 max_us=1525.665 stdev_us=53.331 ops_per_s=821.1
+RESULT hybrid pack bitflip_mlkem_part rc=0 ss_equals_ref=no
+RESULT hybrid pack bitflip_x25519_part rc=0 ss_equals_ref=no
+RESULT hybrid pack zero_x25519_ct_part rc=0 ss_equals_ref=no
+HARNESS_DONE internal_check_failures=0

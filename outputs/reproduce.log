@@ -1,0 +1,307 @@
+Note: switching to '94b421ebb82405c843dba4e9aa521a56ee5a333d'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HARNESS mlkem_harness 1.0.0
+ENV liboqs=0.14.0 openssl=OpenSSL 3.0.13 30 Jan 2024
+PARAM bench_n=200 timing_n=1000 single_threaded=1
+SELFTEST sha3_256_empty expected=a7ffc6f8bf1ed76651c14756a061d662f580ff4de43b49fa82d80a4b80f8434a got=a7ffc6f8bf1ed76651c14756a061d662f580ff4de43b49fa82d80a4b80f8434a PASS
+SELFTEST rfc7748_x25519_vector1 expected=c3da55379de9c6908e94ea4df28d084f32eccf03491c71f754b4075577a28552 got=c3da55379de9c6908e94ea4df28d084f32eccf03491c71f754b4075577a28552 PASS
+SELFTEST rfc7748_x25519_vector2 expected=95cbde9476e8907d7aade45cb4b873f88b595a68799fa152e6f8f7647aac7957 got=95cbde9476e8907d7aade45cb4b873f88b595a68799fa152e6f8f7647aac7957 PASS
+SELFTEST rfc7748_x25519_zero_u result_all_zero=yes
+=== SECTION A+B: ML-KEM-512 ===
+RESULT ML-KEM-512 available=1 alg=ML-KEM-512
+RESULT ML-KEM-512 sizes pk=800 dk=1632 ct=768 ss=32
+RESULT ML-KEM-512 sizes_match_fips203_table3=PASS
+RESULT bench ML-KEM-512_keygen n=200 mean_us=8.665 median_us=8.148 min_us=7.962 max_us=61.051 stdev_us=4.206 ops_per_s=115403.3
+RESULT bench ML-KEM-512_encaps n=200 mean_us=9.138 median_us=8.923 min_us=8.863 max_us=23.886 stdev_us=1.557 ops_per_s=109435.0
+RESULT bench ML-KEM-512_decaps n=200 mean_us=12.081 median_us=11.857 min_us=11.767 max_us=20.831 stdev_us=1.349 ops_per_s=82777.6
+RESULT ML-KEM-512 roundtrip_match=yes
+=== SECTION C: ML-KEM-512 failure injection ===
+RESULT ML-KEM-512 ref_ss_sha256=c63b58c93d7709e9203ecc97f8385b4f84dffbf1f0395ff7688b20a209ba61f9
+RESULT ML-KEM-512 bitflip byte=0 rc=OQS_SUCCESS ss_equals_ref=no ss_sha256=84997aecf2658870058e809c82702a207f77677dc0e99c392bb1fdc445ac11f4
+RESULT ML-KEM-512 bitflip byte=384 rc=OQS_SUCCESS ss_equals_ref=no ss_sha256=e6cc3df3e4840597976f94e9c7bcf21ae35a86f1e569bd4e3f8fc5a6a0c6d7a0
+RESULT ML-KEM-512 bitflip byte=767 rc=OQS_SUCCESS ss_equals_ref=no ss_sha256=b15f0e61a1b304d51251d45bed1c999a1ca25b242923bdb7a739cdc6941e3c37
+RESULT ML-KEM-512 random_ct[0] rc=OQS_SUCCESS ss_sha256=f2062d052492757cef4fc74d9667cb1e81f78984b7e4ec0d3742a4408f60eede
+RESULT ML-KEM-512 random_ct[1] rc=OQS_SUCCESS ss_sha256=1872c02240a1be9f056a338295bd060794acac7638bb5e6ba4422b326222363c
+RESULT ML-KEM-512 random_ct[2] rc=OQS_SUCCESS ss_sha256=bfb0610ead87a87373122d401d2960d6c5baf6155bcda5e2dca74fef4d2e368e
+RESULT ML-KEM-512 random_ct n=32 all_rc_success=yes distinct_rejected_ss=32 any_equals_ref=no
+RESULT ML-KEM-512 zero_ct rc=OQS_SUCCESS ss_equals_ref=no ss_sha256=b38405926568c65c67ab7406ba8389d86d8ab8e4f27e21cb703ba66d150be9a3
+RESULT ML-KEM-512 ct_len=768 rc=OQS_SUCCESS (control)
+RESULT ML-KEM-512 truncated_ct api_note=liboqs_OQS_KEM_decaps_takes_fixed_length_ct_no_length_parameter_short_ct_not_representable
+RESULT ML-KEM-512 truncated_ct status=UNSUPPORTED_IN_THIS_API
+=== SECTION A+B: ML-KEM-768 ===
+RESULT ML-KEM-768 available=1 alg=ML-KEM-768
+RESULT ML-KEM-768 sizes pk=1184 dk=2400 ct=1088 ss=32
+RESULT ML-KEM-768 sizes_match_fips203_table3=PASS
+RESULT bench ML-KEM-768_keygen n=200 mean_us=14.217 median_us=13.800 min_us=13.520 max_us=28.382 stdev_us=2.069 ops_per_s=70337.2
+RESULT bench ML-KEM-768_encaps n=200 mean_us=14.807 median_us=14.382 min_us=14.272 max_us=43.214 stdev_us=2.711 ops_per_s=67534.9
+RESULT bench ML-KEM-768_decaps n=200 mean_us=19.234 median_us=18.688 min_us=18.597 max_us=61.772 stdev_us=3.446 ops_per_s=51992.4
+RESULT ML-KEM-768 roundtrip_match=yes
+=== SECTION C: ML-KEM-768 failure injection ===
+RESULT ML-KEM-768 ref_ss_sha256=25889b709a8917376c814d4b3f8146b2114122009e2345431bf56f6e594520c8
+RESULT ML-KEM-768 bitflip byte=0 rc=OQS_SUCCESS ss_equals_ref=no ss_sha256=8b9c9a4ed32700c860d2695ffb508eb1bb6d6622e3038357894d063bb86495cd
+RESULT ML-KEM-768 bitflip byte=544 rc=OQS_SUCCESS ss_equals_ref=no ss_sha256=4077da8132a988fde980e8fdf750d1971897db565ee58a314008af037d5a8b71
+RESULT ML-KEM-768 bitflip byte=1087 rc=OQS_SUCCESS ss_equals_ref=no ss_sha256=56a570707ae8eb36a9ee525dcdbf9f41eb72f4adc476a25d43e37768b66cde76
+RESULT ML-KEM-768 random_ct[0] rc=OQS_SUCCESS ss_sha256=b86891d9d10ec0245ea56356a67cf5224ea8e7234eceaecc50eb5890511ef98d
+RESULT ML-KEM-768 random_ct[1] rc=OQS_SUCCESS ss_sha256=bc5239928276892365c68820dd7caee9118f6241a1b9baf1c24b66a7c3036ff9
+RESULT ML-KEM-768 random_ct[2] rc=OQS_SUCCESS ss_sha256=09c5cb0d04d8928c836558e404247e51690eed4bce663e25eb034874e6069beb
+RESULT ML-KEM-768 random_ct n=32 all_rc_success=yes distinct_rejected_ss=32 any_equals_ref=no
+RESULT ML-KEM-768 zero_ct rc=OQS_SUCCESS ss_equals_ref=no ss_sha256=6d1031b13792f8bd39ed04616724a3892967a634f304e271e22e337ef8992a35
+RESULT ML-KEM-768 ct_len=1088 rc=OQS_SUCCESS (control)
+RESULT ML-KEM-768 truncated_ct api_note=liboqs_OQS_KEM_decaps_takes_fixed_length_ct_no_length_parameter_short_ct_not_representable
+RESULT ML-KEM-768 truncated_ct status=UNSUPPORTED_IN_THIS_API
+=== SECTION D: ML-KEM-768 coarse timing valid vs invalid decaps ===
+RESULT timing valid n=1000 mean_us=18.776 median_us=18.227 min_us=18.097 max_us=78.818 stdev_us=3.696
+RESULT timing invalid n=1000 mean_us=19.012 median_us=18.217 min_us=18.107 max_us=156.895 stdev_us=5.862
+RESULT timing mean_diff_us=0.236 invalid_over_valid_ratio=1.0126 median_diff_us=-0.010
+NOTE timing caveat=coarse_wall_clock_comparison_not_a_constant_time_proof
+=== SECTION E: ML-KEM-768 key reuse ===
+RESULT ML-KEM-768 keyreuse n=100 all_decaps_match_encaps=yes all_ciphertexts_distinct=yes
+RESULT ML-KEM-768 keyreuse replay_first_ct rc=OQS_SUCCESS ss_sha256=5b1fae1b1ddb9d15e4a7891a457cc29ac77e2bf3f2e71a82b7769d9cd462a4b0
+RESULT ML-KEM-768 keyreuse wrong_key_decaps rc=OQS_SUCCESS ss_equals_ref=no
+=== SECTION A+B: ML-KEM-1024 ===
+RESULT ML-KEM-1024 available=1 alg=ML-KEM-1024
+RESULT ML-KEM-1024 sizes pk=1568 dk=3168 ct=1568 ss=32
+RESULT ML-KEM-1024 sizes_match_fips203_table3=PASS
+RESULT bench ML-KEM-1024_keygen n=200 mean_us=18.621 median_us=18.137 min_us=17.777 max_us=31.307 stdev_us=2.219 ops_per_s=53702.9
+RESULT bench ML-KEM-1024_encaps n=200 mean_us=19.617 median_us=18.608 min_us=18.457 max_us=98.137 stdev_us=6.274 ops_per_s=50977.2
+RESULT bench ML-KEM-1024_decaps n=200 mean_us=25.781 median_us=24.377 min_us=24.256 max_us=143.655 stdev_us=9.035 ops_per_s=38787.7
+RESULT ML-KEM-1024 roundtrip_match=yes
+=== SECTION C: ML-KEM-1024 failure injection ===
+RESULT ML-KEM-1024 ref_ss_sha256=c631a242800ab240d81f53f09f2e4d24cdf842699bae459804523d7b27974fcd
+RESULT ML-KEM-1024 bitflip byte=0 rc=OQS_SUCCESS ss_equals_ref=no ss_sha256=87e239842e50c5fbff371bb3e8a68b1b1cbb4719f057f4e1a0a4cee79c1722dd
+RESULT ML-KEM-1024 bitflip byte=784 rc=OQS_SUCCESS ss_equals_ref=no ss_sha256=446b07722cb4643972946d91d1ce2ff5a02f6dfa10e526c7de75691af828e532
+RESULT ML-KEM-1024 bitflip byte=1567 rc=OQS_SUCCESS ss_equals_ref=no ss_sha256=2839281f43048aa7f04636115d6d765c6c3ff3a0ef9d5c22366a2169f0ca8e3e
+RESULT ML-KEM-1024 random_ct[0] rc=OQS_SUCCESS ss_sha256=93c3e19e250af8bae5254a3e2b7b8db14e2bf8fad9af4792d2300534aadde98b
+RESULT ML-KEM-1024 random_ct[1] rc=OQS_SUCCESS ss_sha256=1b3f5b93b2d27f35b22abccff70e2d436d8f045b97677c8b9238019629dea620
+RESULT ML-KEM-1024 random_ct[2] rc=OQS_SUCCESS ss_sha256=696d9429fbb16aea9f8143b4212efc8e85b0539951d2713c0b19103ee2711926
+RESULT ML-KEM-1024 random_ct n=32 all_rc_success=yes distinct_rejected_ss=32 any_equals_ref=no
+RESULT ML-KEM-1024 zero_ct rc=OQS_SUCCESS ss_equals_ref=no ss_sha256=98b5d67e7793421900695508082b663c5c2a345d188c1d1339e61afbaa2dc8a5
+RESULT ML-KEM-1024 ct_len=1568 rc=OQS_SUCCESS (control)
+RESULT ML-KEM-1024 truncated_ct api_note=liboqs_OQS_KEM_decaps_takes_fixed_length_ct_no_length_parameter_short_ct_not_representable
+RESULT ML-KEM-1024 truncated_ct status=UNSUPPORTED_IN_THIS_API
+=== SECTION F: hybrid ML-KEM-768 + X25519 ===
+RESULT hybrid sizes xwing_pk=1216 xwing_ct=1120 xwing_ss=32 rfc10024_ss=64 pack_ss=32 mlkem768_ct=1088
+RESULT hybrid keygen_note=independent_liboqs_mlkem768_keypair_plus_inharness_rfc7748_x25519_keypair_draft11_shake256_seed_expansion_not_used_because_liboqs_does_not_expose_KeyGen_internal
+RESULT hybrid xwing roundtrip_match=yes rc=0 ss_len=32
+RESULT bench hybrid_xwing_encaps n=200 mean_us=2662.122 median_us=2428.253 min_us=2277.401 max_us=4224.278 stdev_us=543.911 ops_per_s=375.6
+RESULT bench hybrid_xwing_decaps n=200 mean_us=1201.756 median_us=1176.768 min_us=1161.560 max_us=3758.129 stdev_us=183.513 ops_per_s=832.1
+RESULT hybrid xwing bitflip_mlkem_part rc=0 ss_equals_ref=no
+RESULT hybrid xwing bitflip_x25519_part rc=0 ss_equals_ref=no
+RESULT hybrid xwing zero_x25519_ct_part rc=0 ss_equals_ref=no
+RESULT hybrid rfc10024 roundtrip_match=yes rc=0 ss_len=64
+RESULT bench hybrid_rfc10024_encaps n=200 mean_us=2378.019 median_us=2295.369 min_us=2261.548 max_us=5441.001 stdev_us=410.023 ops_per_s=420.5
+RESULT bench hybrid_rfc10024_decaps n=200 mean_us=1195.438 median_us=1166.432 min_us=1154.961 max_us=3560.123 stdev_us=228.459 ops_per_s=836.5
+RESULT hybrid rfc10024 bitflip_mlkem_part rc=0 ss_equals_ref=no
+RESULT hybrid rfc10024 bitflip_x25519_part rc=0 ss_equals_ref=no
+RESULT hybrid rfc10024 zero_x25519_ct_part rc=-2 ss_equals_ref=no
+RESULT hybrid pack roundtrip_match=yes rc=0 ss_len=32
+RESULT bench hybrid_pack_encaps n=200 mean_us=2452.533 median_us=2369.264 min_us=2276.420 max_us=4971.297 stdev_us=283.457 ops_per_s=407.7
+RESULT bench hybrid_pack_decaps n=200 mean_us=1233.800 median_us=1185.431 min_us=1160.328 max_us=1912.154 stdev_us=150.147 ops_per_s=810.5
+RESULT hybrid pack bitflip_mlkem_part rc=0 ss_equals_ref=no
+RESULT hybrid pack bitflip_x25519_part rc=0 ss_equals_ref=no
+RESULT hybrid pack zero_x25519_ct_part rc=0 ss_equals_ref=no
+HARNESS_DONE internal_check_failures=0
+TRACE postfiatd checkout: build/postfiatd
+TRACE HEAD: 0085a1ff885d6a446369cf73a4430f75af22be55 2026-10-10 18:53:26 +0200 Merge pull request #50 from postfiatorg/hotfix/upstream-hardening-1.0.9
+--- whole-word matches for KEM / decapsulat / encapsulat / Kyber / ML-KEM (expect none) ---
+TRACE whole-word KEM matches: NONE
+--- case-insensitive 'kem' substring matches (expect only makeMemberName / makeMptID false positives) ---
+build/postfiatd/src/xrpld/rpc/detail/MPTokenIssuanceID.cpp:56:        return makeMptID(
+build/postfiatd/src/xrpld/overlay/detail/OverlayImpl.cpp:1259:    return makeManifestMessages(
+build/postfiatd/src/xrpld/overlay/detail/ManifestMessages.h:50:makeManifestMessages(
+build/postfiatd/src/xrpld/app/tx/detail/MPTokenIssuanceCreate.cpp:114:    auto const mptId = makeMptID(args.sequence, args.account);
+build/postfiatd/src/xrpld/app/tx/detail/InvariantCheck.cpp:2673:        makeMptID(from.getFieldU32(sfSequence), from.getAccountID(sfIssuer)));
+build/postfiatd/src/test/rpc/Simulate_test.cpp:1306:                    to_string(makeMptID(env.seq(alice), alice));
+build/postfiatd/src/test/protocol/STAmount_test.cpp:1003:        MPTIssue const mpt{MPTIssue{makeMptID(1, AccountID(0x4985601))}};
+build/postfiatd/src/test/protocol/STAmount_test.cpp:1004:        MPTIssue const mpt2{MPTIssue{makeMptID(2, AccountID(0x4985601))}};
+build/postfiatd/src/test/protocol/STAmount_test.cpp:1172:        MPTIssue const mpt{MPTIssue{makeMptID(1, AccountID(0x4985601))}};
+build/postfiatd/src/test/protocol/STAmount_test.cpp:1173:        MPTIssue const mpt2{MPTIssue{makeMptID(2, AccountID(0x4985601))}};
+build/postfiatd/src/test/protocol/Hooks_test.cpp:48:            sfHookEmitCount,
+build/postfiatd/src/test/overlay/manifest_flood_test.cpp:30:    makeManifest(SecretKey const& master, std::uint32_t sequence)
+build/postfiatd/src/test/overlay/manifest_flood_test.cpp:131:        auto const original = makeManifest(master, 1);
+build/postfiatd/src/test/overlay/manifest_flood_test.cpp:152:            auto m = makeManifest(randomSecretKey(), 1);
+build/postfiatd/src/test/overlay/manifest_flood_test.cpp:160:        auto const stranger = makeManifest(randomSecretKey(), 1);
+build/postfiatd/src/test/overlay/manifest_flood_test.cpp:161:        auto const junk = makeManifest(
+build/postfiatd/src/test/overlay/manifest_flood_test.cpp:174:            auto const messages = makeManifestMessages(cache, validators, 0);
+build/postfiatd/src/test/overlay/manifest_flood_test.cpp:185:                parseGreeting(makeManifestMessages(cache, validators, 10));
+build/postfiatd/src/test/overlay/manifest_flood_test.cpp:199:        auto const rotation = makeManifest(master, 2);
+build/postfiatd/src/test/overlay/manifest_flood_test.cpp:204:            makeManifest(master, std::numeric_limits<std::uint32_t>::max());
+build/postfiatd/src/test/overlay/manifest_flood_test.cpp:217:             parseGreeting(makeManifestMessages(cache, validators, 0)))
+build/postfiatd/src/test/overlay/manifest_flood_test.cpp:248:        BEAST_EXPECT(makeManifestMessages(cache, empty, 0).empty());
+build/postfiatd/src/test/overlay/manifest_flood_test.cpp:250:            parseGreeting(makeManifestMessages(cache, empty, 5)).size() == 5);
+build/postfiatd/src/test/overlay/manifest_flood_test.cpp:258:            parseGreeting(makeManifestMessages(cache, empty, 100000));
+build/postfiatd/src/test/overlay/manifest_flood_test.cpp:276:            manifests.push_back(makeManifest(secrets.back(), 1));
+build/postfiatd/src/test/overlay/manifest_flood_test.cpp:289:                       makeManifest(randomSecretKey(), 1), capped) ==
+build/postfiatd/src/test/overlay/manifest_flood_test.cpp:341:            cache.applyManifest(makeManifest(secrets[8], 2), uncapped) ==
+build/postfiatd/src/test/overlay/manifest_flood_test.cpp:350:        auto const revoked = makeManifest(
+build/postfiatd/src/test/overlay/manifest_flood_test.cpp:363:        auto const sighted = makeManifest(randomSecretKey(), 1);
+build/postfiatd/src/test/overlay/manifest_flood_test.cpp:402:            auto const trusted = makeManifest(randomSecretKey(), 1);
+build/postfiatd/src/test/overlay/manifest_flood_test.cpp:403:            auto const trustedRevoked = makeManifest(
+build/postfiatd/src/test/overlay/manifest_flood_test.cpp:414:                auto junk = makeManifest(
+build/postfiatd/src/test/overlay/manifest_flood_test.cpp:460:        auto revocation = makeManifest(
+build/postfiatd/src/test/jtx/impl/mpt.cpp:103:makeMPTCreate(MPTInitDef const& arg)
+build/postfiatd/src/test/jtx/impl/mpt.cpp:127:              .create = makeMPTCreate(arg)}}
+build/postfiatd/src/test/jtx/impl/mpt.cpp:167:    id_ = makeMptID(env_.seq(issuer_), issuer_);
+build/postfiatd/src/test/jtx/TrustedPublisherServer.h:124:    makeManifestString(
+build/postfiatd/src/test/jtx/TrustedPublisherServer.h:160:            makeManifestString(
+build/postfiatd/src/test/jtx/TrustedPublisherServer.h:196:        auto const manifest = makeManifestString(
+build/postfiatd/src/test/beast/aged_associative_container_test.cpp:531:    checkEmplace(Container& c, Values const& v);
+build/postfiatd/src/test/beast/aged_associative_container_test.cpp:535:    checkEmplaceHint(Container& c, Values const& v);
+build/postfiatd/src/test/beast/aged_associative_container_test.cpp:1269:aged_associative_container_test_base::checkEmplace(
+build/postfiatd/src/test/beast/aged_associative_container_test.cpp:1280:aged_associative_container_test_base::checkEmplaceHint(
+build/postfiatd/src/test/app/Vault_test.cpp:1681:        auto const MptID = makeMptID(1, vaultAccount);
+build/postfiatd/src/test/app/ValidatorList_test.cpp:68:    makeManifestString(
+build/postfiatd/src/test/app/ValidatorList_test.cpp:127:            base64_encode(makeManifestString(
+build/postfiatd/src/test/app/ValidatorList_test.cpp:240:        std::string const cfgManifest(makeManifestString(
+build/postfiatd/src/test/app/ValidatorList_test.cpp:481:            pubManifests.applyManifest(*deserializeManifest(makeManifestString(
+build/postfiatd/src/test/app/ValidatorList_test.cpp:520:            pubManifests.applyManifest(*deserializeManifest(makeManifestString(
+build/postfiatd/src/test/app/ValidatorList_test.cpp:631:        auto const manifest1 = base64_encode(makeManifestString(
+build/postfiatd/src/test/app/ValidatorList_test.cpp:794:        auto const untrustedManifest = base64_encode(makeManifestString(
+build/postfiatd/src/test/app/ValidatorList_test.cpp:857:        auto manifest2 = base64_encode(makeManifestString(
+build/postfiatd/src/test/app/ValidatorList_test.cpp:1033:        auto const manifest = base64_encode(makeManifestString(
+build/postfiatd/src/test/app/ValidatorList_test.cpp:1259:            auto m1 = deserializeManifest(makeManifestString(
+build/postfiatd/src/test/app/ValidatorList_test.cpp:1278:            auto m2 = deserializeManifest(makeManifestString(
+build/postfiatd/src/test/app/ValidatorList_test.cpp:1467:            auto const manifest = base64_encode(makeManifestString(
+build/postfiatd/src/test/app/ValidatorList_test.cpp:1690:                auto const manifest = base64_encode(makeManifestString(
+build/postfiatd/src/test/app/ValidatorList_test.cpp:1795:                auto const manifest = base64_encode(makeManifestString(
+build/postfiatd/src/test/app/ValidatorList_test.cpp:2002:                auto const manifest = base64_encode(makeManifestString(
+build/postfiatd/src/test/app/ValidatorList_test.cpp:2788:                auto const manifest = base64_encode(makeManifestString(
+build/postfiatd/src/test/app/Manifest_test.cpp:110:    makeManifestString(
+build/postfiatd/src/test/app/Manifest_test.cpp:198:    makeManifest(
+build/postfiatd/src/test/app/Manifest_test.cpp:364:                    makeManifestString(pk, sk, kp.first, kp.second, 0);
+build/postfiatd/src/test/app/Manifest_test.cpp:390:                    makeManifestString(pk, sk, kp.first, kp.second, 0)};
+build/postfiatd/src/test/app/Manifest_test.cpp:430:        auto const m = makeManifest(
+build/postfiatd/src/test/app/Manifest_test.cpp:466:            cache.applyManifest(makeManifest(
+build/postfiatd/src/test/app/Manifest_test.cpp:478:            cache.applyManifest(makeManifest(
+build/postfiatd/src/test/app/Manifest_test.cpp:488:            cache.applyManifest(makeManifest(
+build/postfiatd/src/test/app/Manifest_test.cpp:988:            auto const s_a0 = makeManifest(
+build/postfiatd/src/test/app/Manifest_test.cpp:990:            auto const s_a1 = makeManifest(
+build/postfiatd/src/test/app/Manifest_test.cpp:992:            auto const s_a2 = makeManifest(
+build/postfiatd/src/test/app/Manifest_test.cpp:1000:            auto const s_b0 = makeManifest(
+build/postfiatd/src/test/app/Manifest_test.cpp:1002:            auto const s_b1 = makeManifest(
+build/postfiatd/src/test/app/Manifest_test.cpp:1009:            auto const s_b2 = makeManifest(
+build/postfiatd/src/test/app/Manifest_test.cpp:1064:            auto const s_c0 = makeManifest(
+build/postfiatd/src/test/app/MPToken_test.cpp:247:            auto const id = makeMptID(env.seq(alice), alice);
+build/postfiatd/src/test/app/MPToken_test.cpp:262:                {.id = makeMptID(env.seq(alice), alice),
+build/postfiatd/src/test/app/MPToken_test.cpp:319:                 .id = makeMptID(env.seq(alice), alice),
+build/postfiatd/src/test/app/MPToken_test.cpp:346:            auto const id = makeMptID(env.seq(alice), alice);
+build/postfiatd/src/test/app/MPToken_test.cpp:576:                 .id = makeMptID(env.seq(alice), alice),
+build/postfiatd/src/test/app/MPToken_test.cpp:709:                {.id = makeMptID(env.seq(alice), alice),
+build/postfiatd/src/test/app/MPToken_test.cpp:937:            STAmount mpt{MPTIssue{makeMptID(1, alice)}, UINT64_C(100)};
+build/postfiatd/src/test/app/MPToken_test.cpp:951:            STAmount mpt{MPTIssue{makeMptID(1, alice)}, UINT64_C(100)};
+build/postfiatd/src/test/app/MPToken_test.cpp:1015:                "MPT", makeMptID(env.seq(alice) + 10, alice));
+build/postfiatd/src/test/app/MPToken_test.cpp:1611:            STAmount mpt{MPTIssue{makeMptID(1, alice)}, UINT64_C(100)};
+build/postfiatd/src/test/app/MPToken_test.cpp:1977:        MPTIssue issue(makeMptID(1, alice));
+build/postfiatd/src/test/app/MPToken_test.cpp:2372:                alice.name(), makeMptID(env.seq(alice), alice));
+build/postfiatd/src/test/app/MPToken_test.cpp:2395:                alice.name(), makeMptID(env.seq(alice), alice));
+build/postfiatd/src/test/app/MPToken_test.cpp:2453:            auto const fakeMpt = ripple::test::jtx::MPT(
+build/postfiatd/src/test/app/MPToken_test.cpp:2454:                alice.name(), makeMptID(env.seq(alice), alice));
+build/postfiatd/src/test/app/MPToken_test.cpp:2457:            env(claw(alice, fakeMpt(5), bob), ter(tecOBJECT_NOT_FOUND));
+build/postfiatd/src/test/app/MPToken_test.cpp:2493:                alice.name(), makeMptID(env.seq(alice), alice));
+build/postfiatd/src/test/app/MPToken_test.cpp:2626:        MPTID const mpt1 = makeMptID(1, gw1);
+build/postfiatd/src/test/app/MPToken_test.cpp:2627:        MPTID const mpt1a = makeMptID(1, gw1);
+build/postfiatd/src/test/app/MPToken_test.cpp:2628:        MPTID const mpt2 = makeMptID(1, gw2);
+build/postfiatd/src/test/app/MPToken_test.cpp:2629:        MPTID const mpt3 = makeMptID(2, gw2);
+build/postfiatd/src/test/app/MPToken_test.cpp:2665:        Asset const asset1{makeMptID(1, gw)};
+build/postfiatd/src/test/app/MPToken_test.cpp:2666:        Asset const asset2{makeMptID(2, gw)};
+build/postfiatd/src/test/app/MPToken_test.cpp:2667:        Asset const asset3{makeMptID(3, gw)};
+build/postfiatd/src/test/app/MPToken_test.cpp:2796:            auto const mptID = makeMptID(env.seq(alice), alice);
+build/postfiatd/src/test/app/MPToken_test.cpp:2840:            auto const mptID = makeMptID(env.seq(alice), alice);
+build/postfiatd/src/test/app/MPToken_test.cpp:2927:            auto const mptID = makeMptID(env.seq(alice), alice);
+build/postfiatd/src/test/app/MPToken_test.cpp:2943:            auto const mptID = makeMptID(env.seq(alice), alice);
+build/postfiatd/src/test/app/MPToken_test.cpp:3025:            auto const mptID = makeMptID(env.seq(alice), alice);
+build/postfiatd/src/test/app/Invariants_test.cpp:931:                    MPTIssue{makeMptID(1, AccountID(0x4985601))}};
+build/postfiatd/src/test/app/Invariants_test.cpp:948:                    MPTIssue{makeMptID(1, AccountID(0x4985601))}};
+build/postfiatd/src/test/app/Invariants_test.cpp:966:                    MPTIssue{makeMptID(1, AccountID(0x4985601))}};
+build/postfiatd/src/test/app/Invariants_test.cpp:984:                    MPTIssue{makeMptID(1, AccountID(0x4985601))}};
+build/postfiatd/src/test/app/Invariants_test.cpp:1003:                    MPTIssue{makeMptID(1, AccountID(0x4985601))}};
+build/postfiatd/src/test/app/Invariants_test.cpp:1021:                    MPTIssue{makeMptID(1, AccountID(0x4985601))}};
+build/postfiatd/src/test/app/Invariants_test.cpp:3152:                auto const sharesMptId = makeMptID(sequence, pseudoId);
+build/postfiatd/src/test/app/Invariants_test.cpp:3218:                auto const sharesMptId = makeMptID(sequence, pseudoId);
+build/postfiatd/src/test/app/Invariants_test.cpp:3266:                auto const sharesMptId = makeMptID(sequence, A2.id());
+build/postfiatd/src/test/app/Invariants_test.cpp:3764:            auto const mptID = makeMptID(env.seq(A3) - 1, A3);
+build/postfiatd/src/test/app/EscrowToken_test.cpp:2294:                alice.name(), makeMptID(env.seq(alice), alice));
+build/postfiatd/src/test/app/EscrowToken_test.cpp:2632:                        MPTIssue{makeMptID(1, AccountID(0x4985601))}};
+build/postfiatd/src/test/app/EscrowToken_test.cpp:2870:                        MPTIssue{makeMptID(1, AccountID(0x4985601))}};
+build/postfiatd/src/test/app/Batch_test.cpp:4179:            auto const mptID = makeMptID(env.seq(alice), alice);
+build/postfiatd/src/libxrpl/protocol/STTx.cpp:479:    std::function<Serializer(AccountID const&)> makeMsg,
+build/postfiatd/src/libxrpl/protocol/STTx.cpp:534:                    makeMsg(accountID).slice(),
+build/postfiatd/src/libxrpl/protocol/STLedgerEntry.cpp:143:            makeMptID(getFieldU32(sfSequence), getAccountID(sfIssuer)));
+build/postfiatd/src/libxrpl/protocol/Indexes.cpp:172:makeMptID(std::uint32_t sequence, AccountID const& account)
+build/postfiatd/src/libxrpl/protocol/Indexes.cpp:536:    return mptIssuance(makeMptID(seq, issuer));
+build/postfiatd/src/libxrpl/json/json_value.cpp:43:    makeMemberName(char const* memberName) override
+build/postfiatd/src/libxrpl/json/json_value.cpp:113:          allocate == duplicate ? valueAllocator()->makeMemberName(cstr) : cstr)
+build/postfiatd/src/libxrpl/json/json_value.cpp:121:              ? valueAllocator()->makeMemberName(other.cstr_)
+build/postfiatd/include/xrpl/protocol/Indexes.h:417:makeMptID(std::uint32_t sequence, AccountID const& account);
+build/postfiatd/include/xrpl/json/json_value.h:490: * - makeMemberName() and releaseMemberName() are called to respectively
+build/postfiatd/include/xrpl/json/json_value.h:503:    makeMemberName(char const* memberName) = 0;
+--- KeyType enum (expect exactly secp256k1 and ed25519) ---
+28:enum class KeyType {
+29:    secp256k1 = 0,
+30:    ed25519 = 1,
+36:    if (s == "secp256k1")
+37:        return KeyType::secp256k1;
+39:    if (s == "ed25519")
+40:        return KeyType::ed25519;
+48:    if (type == KeyType::secp256k1)
+49:        return "secp256k1";
+51:    if (type == KeyType::ed25519)
+52:        return "ed25519";
+--- key-type use sites ---
+build/postfiatd/src/libxrpl/protocol/PublicKey.cpp:229:            return KeyType::ed25519;
+build/postfiatd/src/libxrpl/protocol/PublicKey.cpp:232:            return KeyType::secp256k1;
+build/postfiatd/src/libxrpl/protocol/PublicKey.cpp:245:    if (publicKeyType(publicKey) != KeyType::secp256k1)
+build/postfiatd/src/libxrpl/protocol/PublicKey.cpp:297:        if (*type == KeyType::secp256k1)
+build/postfiatd/src/libxrpl/protocol/PublicKey.cpp:302:        else if (*type == KeyType::ed25519)
+build/postfiatd/src/libxrpl/protocol/SecretKey.cpp:223:        return {derivePublicKey(KeyType::secp256k1, gsk), gsk};
+build/postfiatd/src/libxrpl/protocol/SecretKey.cpp:232:    if (publicKeyType(pk.slice()) != KeyType::secp256k1)
+build/postfiatd/src/libxrpl/protocol/SecretKey.cpp:263:        case KeyType::ed25519: {
+build/postfiatd/src/libxrpl/protocol/SecretKey.cpp:269:        case KeyType::secp256k1: {
+build/postfiatd/src/libxrpl/protocol/SecretKey.cpp:311:    if (type == KeyType::ed25519)
+build/postfiatd/src/libxrpl/protocol/SecretKey.cpp:319:    if (type == KeyType::secp256k1)
+build/postfiatd/src/libxrpl/protocol/SecretKey.cpp:335:        case KeyType::secp256k1: {
+build/postfiatd/src/libxrpl/protocol/SecretKey.cpp:357:        case KeyType::ed25519: {
+build/postfiatd/src/libxrpl/protocol/SecretKey.cpp:373:        case KeyType::secp256k1: {
+build/postfiatd/src/libxrpl/protocol/SecretKey.cpp:378:        case KeyType::ed25519: {
+--- KEM-like filenames (expect none) ---
+TRACE_DONE
+SHA256SUMS regenerated: 22 entries
+./README.md: OK
+./configs/bench-params.json: OK
+./docs/citations.md: OK
+./docs/claim-index.md: OK
+./docs/decision-memo.md: OK
+./docs/environment.md: OK
+./docs/findings.md: OK
+./docs/methodology.md: OK
+./docs/remediation.md: OK
+./findings.json: OK
+./fixtures/source-excerpts/keytype-enum.txt: OK
+./fixtures/source-excerpts/publickeytype.txt: OK
+./fixtures/source-excerpts/secretkey-dispatch.txt: OK
+./fixtures/source-hashes.json: OK
+./outputs/harness.log: OK
+./outputs/source-trace.log: OK
+./run-manifest.json: OK
+./run_all.sh: OK
+./scripts/make_sha256sums.sh: OK
+./scripts/trace_postfiatd.sh: OK
+./scripts/verify_digests.sh: OK
+./src/mlkem_harness.c: OK
+DIGESTS_OK
+RUN_ALL_OK bench_n=200 timing_n=1000

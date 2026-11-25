@@ -1,0 +1,164 @@
+TRACE postfiatd checkout: ../work/postfiatd
+TRACE HEAD: 0085a1ff885d6a446369cf73a4430f75af22be55 2026-10-10 18:53:26 +0200 Merge pull request #50 from postfiatorg/hotfix/upstream-hardening-1.0.9
+--- whole-word matches for KEM / decapsulat / encapsulat / Kyber / ML-KEM (expect none) ---
+TRACE whole-word KEM matches: NONE
+--- case-insensitive 'kem' substring matches (expect only makeMemberName / makeMptID false positives) ---
+../work/postfiatd/src/libxrpl/json/json_value.cpp:43:    makeMemberName(char const* memberName) override
+../work/postfiatd/src/libxrpl/json/json_value.cpp:113:          allocate == duplicate ? valueAllocator()->makeMemberName(cstr) : cstr)
+../work/postfiatd/src/libxrpl/json/json_value.cpp:121:              ? valueAllocator()->makeMemberName(other.cstr_)
+../work/postfiatd/src/libxrpl/protocol/Indexes.cpp:172:makeMptID(std::uint32_t sequence, AccountID const& account)
+../work/postfiatd/src/libxrpl/protocol/Indexes.cpp:536:    return mptIssuance(makeMptID(seq, issuer));
+../work/postfiatd/src/libxrpl/protocol/STLedgerEntry.cpp:143:            makeMptID(getFieldU32(sfSequence), getAccountID(sfIssuer)));
+../work/postfiatd/src/libxrpl/protocol/STTx.cpp:479:    std::function<Serializer(AccountID const&)> makeMsg,
+../work/postfiatd/src/libxrpl/protocol/STTx.cpp:534:                    makeMsg(accountID).slice(),
+../work/postfiatd/src/test/app/Batch_test.cpp:4179:            auto const mptID = makeMptID(env.seq(alice), alice);
+../work/postfiatd/src/test/app/EscrowToken_test.cpp:2294:                alice.name(), makeMptID(env.seq(alice), alice));
+../work/postfiatd/src/test/app/EscrowToken_test.cpp:2632:                        MPTIssue{makeMptID(1, AccountID(0x4985601))}};
+../work/postfiatd/src/test/app/EscrowToken_test.cpp:2870:                        MPTIssue{makeMptID(1, AccountID(0x4985601))}};
+../work/postfiatd/src/test/app/Invariants_test.cpp:931:                    MPTIssue{makeMptID(1, AccountID(0x4985601))}};
+../work/postfiatd/src/test/app/Invariants_test.cpp:948:                    MPTIssue{makeMptID(1, AccountID(0x4985601))}};
+../work/postfiatd/src/test/app/Invariants_test.cpp:966:                    MPTIssue{makeMptID(1, AccountID(0x4985601))}};
+../work/postfiatd/src/test/app/Invariants_test.cpp:984:                    MPTIssue{makeMptID(1, AccountID(0x4985601))}};
+../work/postfiatd/src/test/app/Invariants_test.cpp:1003:                    MPTIssue{makeMptID(1, AccountID(0x4985601))}};
+../work/postfiatd/src/test/app/Invariants_test.cpp:1021:                    MPTIssue{makeMptID(1, AccountID(0x4985601))}};
+../work/postfiatd/src/test/app/Invariants_test.cpp:3152:                auto const sharesMptId = makeMptID(sequence, pseudoId);
+../work/postfiatd/src/test/app/Invariants_test.cpp:3218:                auto const sharesMptId = makeMptID(sequence, pseudoId);
+../work/postfiatd/src/test/app/Invariants_test.cpp:3266:                auto const sharesMptId = makeMptID(sequence, A2.id());
+../work/postfiatd/src/test/app/Invariants_test.cpp:3764:            auto const mptID = makeMptID(env.seq(A3) - 1, A3);
+../work/postfiatd/src/test/app/MPToken_test.cpp:247:            auto const id = makeMptID(env.seq(alice), alice);
+../work/postfiatd/src/test/app/MPToken_test.cpp:262:                {.id = makeMptID(env.seq(alice), alice),
+../work/postfiatd/src/test/app/MPToken_test.cpp:319:                 .id = makeMptID(env.seq(alice), alice),
+../work/postfiatd/src/test/app/MPToken_test.cpp:346:            auto const id = makeMptID(env.seq(alice), alice);
+../work/postfiatd/src/test/app/MPToken_test.cpp:576:                 .id = makeMptID(env.seq(alice), alice),
+../work/postfiatd/src/test/app/MPToken_test.cpp:709:                {.id = makeMptID(env.seq(alice), alice),
+../work/postfiatd/src/test/app/MPToken_test.cpp:937:            STAmount mpt{MPTIssue{makeMptID(1, alice)}, UINT64_C(100)};
+../work/postfiatd/src/test/app/MPToken_test.cpp:951:            STAmount mpt{MPTIssue{makeMptID(1, alice)}, UINT64_C(100)};
+../work/postfiatd/src/test/app/MPToken_test.cpp:1015:                "MPT", makeMptID(env.seq(alice) + 10, alice));
+../work/postfiatd/src/test/app/MPToken_test.cpp:1611:            STAmount mpt{MPTIssue{makeMptID(1, alice)}, UINT64_C(100)};
+../work/postfiatd/src/test/app/MPToken_test.cpp:1977:        MPTIssue issue(makeMptID(1, alice));
+../work/postfiatd/src/test/app/MPToken_test.cpp:2372:                alice.name(), makeMptID(env.seq(alice), alice));
+../work/postfiatd/src/test/app/MPToken_test.cpp:2395:                alice.name(), makeMptID(env.seq(alice), alice));
+../work/postfiatd/src/test/app/MPToken_test.cpp:2453:            auto const fakeMpt = ripple::test::jtx::MPT(
+../work/postfiatd/src/test/app/MPToken_test.cpp:2454:                alice.name(), makeMptID(env.seq(alice), alice));
+../work/postfiatd/src/test/app/MPToken_test.cpp:2457:            env(claw(alice, fakeMpt(5), bob), ter(tecOBJECT_NOT_FOUND));
+../work/postfiatd/src/test/app/MPToken_test.cpp:2493:                alice.name(), makeMptID(env.seq(alice), alice));
+../work/postfiatd/src/test/app/MPToken_test.cpp:2626:        MPTID const mpt1 = makeMptID(1, gw1);
+../work/postfiatd/src/test/app/MPToken_test.cpp:2627:        MPTID const mpt1a = makeMptID(1, gw1);
+../work/postfiatd/src/test/app/MPToken_test.cpp:2628:        MPTID const mpt2 = makeMptID(1, gw2);
+../work/postfiatd/src/test/app/MPToken_test.cpp:2629:        MPTID const mpt3 = makeMptID(2, gw2);
+../work/postfiatd/src/test/app/MPToken_test.cpp:2665:        Asset const asset1{makeMptID(1, gw)};
+../work/postfiatd/src/test/app/MPToken_test.cpp:2666:        Asset const asset2{makeMptID(2, gw)};
+../work/postfiatd/src/test/app/MPToken_test.cpp:2667:        Asset const asset3{makeMptID(3, gw)};
+../work/postfiatd/src/test/app/MPToken_test.cpp:2796:            auto const mptID = makeMptID(env.seq(alice), alice);
+../work/postfiatd/src/test/app/MPToken_test.cpp:2840:            auto const mptID = makeMptID(env.seq(alice), alice);
+../work/postfiatd/src/test/app/MPToken_test.cpp:2927:            auto const mptID = makeMptID(env.seq(alice), alice);
+../work/postfiatd/src/test/app/MPToken_test.cpp:2943:            auto const mptID = makeMptID(env.seq(alice), alice);
+../work/postfiatd/src/test/app/MPToken_test.cpp:3025:            auto const mptID = makeMptID(env.seq(alice), alice);
+../work/postfiatd/src/test/app/Manifest_test.cpp:110:    makeManifestString(
+../work/postfiatd/src/test/app/Manifest_test.cpp:198:    makeManifest(
+../work/postfiatd/src/test/app/Manifest_test.cpp:364:                    makeManifestString(pk, sk, kp.first, kp.second, 0);
+../work/postfiatd/src/test/app/Manifest_test.cpp:390:                    makeManifestString(pk, sk, kp.first, kp.second, 0)};
+../work/postfiatd/src/test/app/Manifest_test.cpp:430:        auto const m = makeManifest(
+../work/postfiatd/src/test/app/Manifest_test.cpp:466:            cache.applyManifest(makeManifest(
+../work/postfiatd/src/test/app/Manifest_test.cpp:478:            cache.applyManifest(makeManifest(
+../work/postfiatd/src/test/app/Manifest_test.cpp:488:            cache.applyManifest(makeManifest(
+../work/postfiatd/src/test/app/Manifest_test.cpp:988:            auto const s_a0 = makeManifest(
+../work/postfiatd/src/test/app/Manifest_test.cpp:990:            auto const s_a1 = makeManifest(
+../work/postfiatd/src/test/app/Manifest_test.cpp:992:            auto const s_a2 = makeManifest(
+../work/postfiatd/src/test/app/Manifest_test.cpp:1000:            auto const s_b0 = makeManifest(
+../work/postfiatd/src/test/app/Manifest_test.cpp:1002:            auto const s_b1 = makeManifest(
+../work/postfiatd/src/test/app/Manifest_test.cpp:1009:            auto const s_b2 = makeManifest(
+../work/postfiatd/src/test/app/Manifest_test.cpp:1064:            auto const s_c0 = makeManifest(
+../work/postfiatd/src/test/app/ValidatorList_test.cpp:68:    makeManifestString(
+../work/postfiatd/src/test/app/ValidatorList_test.cpp:127:            base64_encode(makeManifestString(
+../work/postfiatd/src/test/app/ValidatorList_test.cpp:240:        std::string const cfgManifest(makeManifestString(
+../work/postfiatd/src/test/app/ValidatorList_test.cpp:481:            pubManifests.applyManifest(*deserializeManifest(makeManifestString(
+../work/postfiatd/src/test/app/ValidatorList_test.cpp:520:            pubManifests.applyManifest(*deserializeManifest(makeManifestString(
+../work/postfiatd/src/test/app/ValidatorList_test.cpp:631:        auto const manifest1 = base64_encode(makeManifestString(
+../work/postfiatd/src/test/app/ValidatorList_test.cpp:794:        auto const untrustedManifest = base64_encode(makeManifestString(
+../work/postfiatd/src/test/app/ValidatorList_test.cpp:857:        auto manifest2 = base64_encode(makeManifestString(
+../work/postfiatd/src/test/app/ValidatorList_test.cpp:1033:        auto const manifest = base64_encode(makeManifestString(
+../work/postfiatd/src/test/app/ValidatorList_test.cpp:1259:            auto m1 = deserializeManifest(makeManifestString(
+../work/postfiatd/src/test/app/ValidatorList_test.cpp:1278:            auto m2 = deserializeManifest(makeManifestString(
+../work/postfiatd/src/test/app/ValidatorList_test.cpp:1467:            auto const manifest = base64_encode(makeManifestString(
+../work/postfiatd/src/test/app/ValidatorList_test.cpp:1690:                auto const manifest = base64_encode(makeManifestString(
+../work/postfiatd/src/test/app/ValidatorList_test.cpp:1795:                auto const manifest = base64_encode(makeManifestString(
+../work/postfiatd/src/test/app/ValidatorList_test.cpp:2002:                auto const manifest = base64_encode(makeManifestString(
+../work/postfiatd/src/test/app/ValidatorList_test.cpp:2788:                auto const manifest = base64_encode(makeManifestString(
+../work/postfiatd/src/test/app/Vault_test.cpp:1681:        auto const MptID = makeMptID(1, vaultAccount);
+../work/postfiatd/src/test/beast/aged_associative_container_test.cpp:531:    checkEmplace(Container& c, Values const& v);
+../work/postfiatd/src/test/beast/aged_associative_container_test.cpp:535:    checkEmplaceHint(Container& c, Values const& v);
+../work/postfiatd/src/test/beast/aged_associative_container_test.cpp:1269:aged_associative_container_test_base::checkEmplace(
+../work/postfiatd/src/test/beast/aged_associative_container_test.cpp:1280:aged_associative_container_test_base::checkEmplaceHint(
+../work/postfiatd/src/test/jtx/TrustedPublisherServer.h:124:    makeManifestString(
+../work/postfiatd/src/test/jtx/TrustedPublisherServer.h:160:            makeManifestString(
+../work/postfiatd/src/test/jtx/TrustedPublisherServer.h:196:        auto const manifest = makeManifestString(
+../work/postfiatd/src/test/jtx/impl/mpt.cpp:103:makeMPTCreate(MPTInitDef const& arg)
+../work/postfiatd/src/test/jtx/impl/mpt.cpp:127:              .create = makeMPTCreate(arg)}}
+../work/postfiatd/src/test/jtx/impl/mpt.cpp:167:    id_ = makeMptID(env_.seq(issuer_), issuer_);
+../work/postfiatd/src/test/overlay/manifest_flood_test.cpp:30:    makeManifest(SecretKey const& master, std::uint32_t sequence)
+../work/postfiatd/src/test/overlay/manifest_flood_test.cpp:131:        auto const original = makeManifest(master, 1);
+../work/postfiatd/src/test/overlay/manifest_flood_test.cpp:152:            auto m = makeManifest(randomSecretKey(), 1);
+../work/postfiatd/src/test/overlay/manifest_flood_test.cpp:160:        auto const stranger = makeManifest(randomSecretKey(), 1);
+../work/postfiatd/src/test/overlay/manifest_flood_test.cpp:161:        auto const junk = makeManifest(
+../work/postfiatd/src/test/overlay/manifest_flood_test.cpp:174:            auto const messages = makeManifestMessages(cache, validators, 0);
+../work/postfiatd/src/test/overlay/manifest_flood_test.cpp:185:                parseGreeting(makeManifestMessages(cache, validators, 10));
+../work/postfiatd/src/test/overlay/manifest_flood_test.cpp:199:        auto const rotation = makeManifest(master, 2);
+../work/postfiatd/src/test/overlay/manifest_flood_test.cpp:204:            makeManifest(master, std::numeric_limits<std::uint32_t>::max());
+../work/postfiatd/src/test/overlay/manifest_flood_test.cpp:217:             parseGreeting(makeManifestMessages(cache, validators, 0)))
+../work/postfiatd/src/test/overlay/manifest_flood_test.cpp:248:        BEAST_EXPECT(makeManifestMessages(cache, empty, 0).empty());
+../work/postfiatd/src/test/overlay/manifest_flood_test.cpp:250:            parseGreeting(makeManifestMessages(cache, empty, 5)).size() == 5);
+../work/postfiatd/src/test/overlay/manifest_flood_test.cpp:258:            parseGreeting(makeManifestMessages(cache, empty, 100000));
+../work/postfiatd/src/test/overlay/manifest_flood_test.cpp:276:            manifests.push_back(makeManifest(secrets.back(), 1));
+../work/postfiatd/src/test/overlay/manifest_flood_test.cpp:289:                       makeManifest(randomSecretKey(), 1), capped) ==
+../work/postfiatd/src/test/overlay/manifest_flood_test.cpp:341:            cache.applyManifest(makeManifest(secrets[8], 2), uncapped) ==
+../work/postfiatd/src/test/overlay/manifest_flood_test.cpp:350:        auto const revoked = makeManifest(
+../work/postfiatd/src/test/overlay/manifest_flood_test.cpp:363:        auto const sighted = makeManifest(randomSecretKey(), 1);
+../work/postfiatd/src/test/overlay/manifest_flood_test.cpp:402:            auto const trusted = makeManifest(randomSecretKey(), 1);
+../work/postfiatd/src/test/overlay/manifest_flood_test.cpp:403:            auto const trustedRevoked = makeManifest(
+../work/postfiatd/src/test/overlay/manifest_flood_test.cpp:414:                auto junk = makeManifest(
+../work/postfiatd/src/test/overlay/manifest_flood_test.cpp:460:        auto revocation = makeManifest(
+../work/postfiatd/src/test/protocol/Hooks_test.cpp:48:            sfHookEmitCount,
+../work/postfiatd/src/test/protocol/STAmount_test.cpp:1003:        MPTIssue const mpt{MPTIssue{makeMptID(1, AccountID(0x4985601))}};
+../work/postfiatd/src/test/protocol/STAmount_test.cpp:1004:        MPTIssue const mpt2{MPTIssue{makeMptID(2, AccountID(0x4985601))}};
+../work/postfiatd/src/test/protocol/STAmount_test.cpp:1172:        MPTIssue const mpt{MPTIssue{makeMptID(1, AccountID(0x4985601))}};
+../work/postfiatd/src/test/protocol/STAmount_test.cpp:1173:        MPTIssue const mpt2{MPTIssue{makeMptID(2, AccountID(0x4985601))}};
+../work/postfiatd/src/test/rpc/Simulate_test.cpp:1306:                    to_string(makeMptID(env.seq(alice), alice));
+../work/postfiatd/src/xrpld/app/tx/detail/InvariantCheck.cpp:2673:        makeMptID(from.getFieldU32(sfSequence), from.getAccountID(sfIssuer)));
+../work/postfiatd/src/xrpld/app/tx/detail/MPTokenIssuanceCreate.cpp:114:    auto const mptId = makeMptID(args.sequence, args.account);
+../work/postfiatd/src/xrpld/overlay/detail/ManifestMessages.h:50:makeManifestMessages(
+../work/postfiatd/src/xrpld/overlay/detail/OverlayImpl.cpp:1259:    return makeManifestMessages(
+../work/postfiatd/src/xrpld/rpc/detail/MPTokenIssuanceID.cpp:56:        return makeMptID(
+../work/postfiatd/include/xrpl/json/json_value.h:490: * - makeMemberName() and releaseMemberName() are called to respectively
+../work/postfiatd/include/xrpl/json/json_value.h:503:    makeMemberName(char const* memberName) = 0;
+../work/postfiatd/include/xrpl/protocol/Indexes.h:417:makeMptID(std::uint32_t sequence, AccountID const& account);
+--- KeyType enum (expect exactly secp256k1 and ed25519) ---
+28:enum class KeyType {
+29:    secp256k1 = 0,
+30:    ed25519 = 1,
+36:    if (s == "secp256k1")
+37:        return KeyType::secp256k1;
+39:    if (s == "ed25519")
+40:        return KeyType::ed25519;
+48:    if (type == KeyType::secp256k1)
+49:        return "secp256k1";
+51:    if (type == KeyType::ed25519)
+52:        return "ed25519";
+--- key-type use sites ---
+../work/postfiatd/src/libxrpl/protocol/PublicKey.cpp:229:            return KeyType::ed25519;
+../work/postfiatd/src/libxrpl/protocol/PublicKey.cpp:232:            return KeyType::secp256k1;
+../work/postfiatd/src/libxrpl/protocol/PublicKey.cpp:245:    if (publicKeyType(publicKey) != KeyType::secp256k1)
+../work/postfiatd/src/libxrpl/protocol/PublicKey.cpp:297:        if (*type == KeyType::secp256k1)
+../work/postfiatd/src/libxrpl/protocol/PublicKey.cpp:302:        else if (*type == KeyType::ed25519)
+../work/postfiatd/src/libxrpl/protocol/SecretKey.cpp:223:        return {derivePublicKey(KeyType::secp256k1, gsk), gsk};
+../work/postfiatd/src/libxrpl/protocol/SecretKey.cpp:232:    if (publicKeyType(pk.slice()) != KeyType::secp256k1)
+../work/postfiatd/src/libxrpl/protocol/SecretKey.cpp:263:        case KeyType::ed25519: {
+../work/postfiatd/src/libxrpl/protocol/SecretKey.cpp:269:        case KeyType::secp256k1: {
+../work/postfiatd/src/libxrpl/protocol/SecretKey.cpp:311:    if (type == KeyType::ed25519)
+../work/postfiatd/src/libxrpl/protocol/SecretKey.cpp:319:    if (type == KeyType::secp256k1)
+../work/postfiatd/src/libxrpl/protocol/SecretKey.cpp:335:        case KeyType::secp256k1: {
+../work/postfiatd/src/libxrpl/protocol/SecretKey.cpp:357:        case KeyType::ed25519: {
+../work/postfiatd/src/libxrpl/protocol/SecretKey.cpp:373:        case KeyType::secp256k1: {
+../work/postfiatd/src/libxrpl/protocol/SecretKey.cpp:378:        case KeyType::ed25519: {
+--- KEM-like filenames (expect none) ---
+TRACE_DONE
