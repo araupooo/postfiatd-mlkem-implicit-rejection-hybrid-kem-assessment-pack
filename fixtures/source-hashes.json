@@ -1,0 +1,8 @@
+{
+ "postfiatd_head": "0085a1ff885d6a446369cf73a4430f75af22be55",
+ "files": {
+  "include/xrpl/protocol/KeyType.h": "aca748df9ecac78751e03f5076e09f918a01a47a24358cd19b9ffcbcabb59069",
+  "src/libxrpl/protocol/PublicKey.cpp": "fd657e6d8f7b498bd14ad07823f72560fcd743d0986fad89fd8fcf1efe1129e2",
+  "src/libxrpl/protocol/SecretKey.cpp": "60871a708fadcefcab444ed2ddd390a366e422684e6fb8a22c5183c63106176a"
+ }
+}
